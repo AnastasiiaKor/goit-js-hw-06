@@ -8,7 +8,6 @@ const destroyBtn = document.querySelector("button[data-destroy]");
 const boxEl = document.querySelector("#boxes");
 
 function createBoxes(amount) {
-  destroyBoxes();
   const boxes = [];
   for (let i = 0, j = 30; i < amount; i += 1, j += 10) {
     const box = document.createElement("div");
@@ -19,7 +18,7 @@ function createBoxes(amount) {
     boxEl.append(...boxes);
   }
 }
-
+inputEl.addEventListener("focus", destroyBoxes);
 createBtn.addEventListener("click", () => createBoxes(inputEl.value));
 
 function destroyBoxes() {
